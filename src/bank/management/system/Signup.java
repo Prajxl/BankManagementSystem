@@ -1,5 +1,7 @@
 package bank.management.system;
 
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
@@ -11,8 +13,11 @@ public class Signup extends JFrame {
 
     String first = " "+Math.abs(first4);
 
-    JTextField textName,textFname;
+    JTextField textName,textFname,textEmail,textMs;
     JDateChooser dateChooser;
+
+    JRadioButton r1,r2;
+
 
 
     Signup(){
@@ -65,6 +70,63 @@ public class Signup extends JFrame {
         DOB.setFont(new Font("Raleway",Font.BOLD,20));
         DOB.setBounds(100,340,200,30);
         add(DOB);
+
+        dateChooser = new JDateChooser();
+        dateChooser.setForeground(new Color(105,105,105));
+        dateChooser.setBounds(300,340,400,30);
+        add(dateChooser);
+
+
+        JLabel labelG = new JLabel("Gender");
+        labelG.setFont(new Font("Ralway",Font.BOLD,20));
+        labelG.setBounds(100,290,200,30);
+        add(labelG);
+
+        r1=new JRadioButton("Male");
+        r1.setFont(new Font("Raleway",Font.BOLD,14));
+        r1.setBackground(new Color(222,255,228));
+        r1.setBounds(300,290,60,30);
+        add(r1);
+
+        r2=new JRadioButton("Female");
+        r2.setFont(new Font("Raleway",Font.BOLD,14));
+        r2.setBackground(new Color(222,255,228));
+        r2.setBounds(400,290,100,30);
+        add(r2);
+
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(r1);
+        buttonGroup.add(r2);
+
+        JLabel labelEmail = new JLabel("Email Address : ");
+        labelEmail.setFont(new Font("Ralway",Font.BOLD,20));
+        labelEmail.setBounds(100,390,200,30);
+        add(labelEmail);
+
+        textEmail=new JTextField();
+        textEmail.setFont(new Font("Ralway",Font.BOLD,14));
+        textEmail.setBounds(300,390,400,30);
+        add(textEmail);
+
+        JLabel labelMs = new JLabel("Marital Status : ");
+        labelMs.setFont(new Font("Ralway",Font.BOLD,20));
+        labelMs.setBounds(100,450,200,30);
+        add(labelMs);
+
+        textMs=new JTextField();
+        textMs.setFont(new Font("Ralway",Font.BOLD,14));
+        textMs.setBounds(300,450,400,30);
+        add(textMs);
+
+        JLabel labelAdd = new JLabel("Address : ");
+        labelAdd.setFont(new Font("Ralway",Font.BOLD,20));
+        labelAdd.setBounds(100,490,200,30);
+        add(labelAdd);
+
+        textMs=new JTextField();
+        textMs.setFont(new Font("Ralway",Font.BOLD,14));
+        textMs.setBounds(300,490,400,30);
+        add(textMs);
 
 
         getContentPane().setBackground(new Color(222,255,228));
