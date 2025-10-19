@@ -4,19 +4,22 @@ import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class Signup extends JFrame {
+public class Signup extends JFrame implements ActionListener {
     Random ran = new Random();
 
     long first4 = (ran.nextLong() % 9000L ) + 1000L;
 
     String first = " "+Math.abs(first4);
 
-    JTextField textName,textFname,textEmail,textMs;
+    JTextField textName,textFname,textEmail,textMs,textAdd,textCity,textPin,textState;
     JDateChooser dateChooser;
 
-    JRadioButton r1,r2;
+    JRadioButton r1,r2,m1,m2,m3;
+    JButton next;
 
 
 
@@ -110,23 +113,82 @@ public class Signup extends JFrame {
 
         JLabel labelMs = new JLabel("Marital Status : ");
         labelMs.setFont(new Font("Ralway",Font.BOLD,20));
-        labelMs.setBounds(100,450,200,30);
+        labelMs.setBounds(100,435,200,30);
         add(labelMs);
 
-        textMs=new JTextField();
-        textMs.setFont(new Font("Ralway",Font.BOLD,14));
-        textMs.setBounds(300,450,400,30);
-        add(textMs);
+
+
+        m1=new JRadioButton("Married");
+        m1.setFont(new Font("Ralway",Font.BOLD,14));
+        m1.setBounds(300,435,100,30);
+        m1.setBackground(new Color(222,255,228));
+        add(m1);
+
+        m2=new JRadioButton("UnMarried");
+        m2.setFont(new Font("Ralway",Font.BOLD,14));
+        m2.setBounds(400,435,100,30);
+        m2.setBackground(new Color(222,255,228));
+        add(m2);
+
+        m3=new JRadioButton("Other");
+        m3.setFont(new Font("Ralway",Font.BOLD,14));
+        m3.setBounds(500,435,100,30);
+        m3.setBackground(new Color(222,255,228));
+        add(m3);
+
+        ButtonGroup marriage = new ButtonGroup();
+        marriage.add(m1);
+        marriage.add(m2);
+        marriage.add(m3);
 
         JLabel labelAdd = new JLabel("Address : ");
         labelAdd.setFont(new Font("Ralway",Font.BOLD,20));
         labelAdd.setBounds(100,490,200,30);
         add(labelAdd);
 
-        textMs=new JTextField();
-        textMs.setFont(new Font("Ralway",Font.BOLD,14));
-        textMs.setBounds(300,490,400,30);
-        add(textMs);
+        textAdd=new JTextField();
+        textAdd.setFont(new Font("Ralway",Font.BOLD,14));
+        textAdd.setBounds(300,490,400,30);
+        add(textAdd);
+
+        JLabel labelC=new JLabel("City :");
+        labelC.setFont(new Font("Ralway",Font.BOLD,20));
+        labelC.setBounds(100,540,200,30);
+        add(labelC);
+
+        textCity=new JTextField();
+        textCity.setFont(new Font("Ralway",Font.BOLD,14));
+        textCity.setBounds(300,540,400,30);
+        add(textCity);
+
+        JLabel labelPin=new JLabel("Pin :");
+        labelPin.setFont(new Font("Ralway",Font.BOLD,20));
+        labelPin.setBounds(100,590,200,30);
+        add(labelPin);
+
+        textPin=new JTextField();
+        textPin.setFont(new Font("Ralway",Font.BOLD,14));
+        textPin.setBounds(300,590,400,30);
+        add(textPin);
+
+        JLabel labelState=new JLabel("State :");
+        labelState.setFont(new Font("Ralway",Font.BOLD,20));
+        labelState.setBounds(100,640,200,30);
+        add(labelState);
+
+        textState=new JTextField();
+        textState.setFont(new Font("Ralway",Font.BOLD,14));
+        textState.setBounds(300,640,400,30);
+        add(textState);
+
+        next=new JButton("Next");
+        next.setFont(new Font("Ralway",Font.BOLD,14));
+        next.setBackground(Color.BLACK);
+        next.setForeground(Color.WHITE);
+        next.setBounds(620,710,80,30);
+        next.addActionListener(this);
+        add(next);
+
 
 
         getContentPane().setBackground(new Color(222,255,228));
@@ -135,6 +197,12 @@ public class Signup extends JFrame {
         setLocation(360,40);
         setVisible(true);
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
+
     public static void main(String[] args) {
        new Signup();
     }
